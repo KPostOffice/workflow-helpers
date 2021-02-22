@@ -100,7 +100,11 @@ def _handle_solved_message(Configuration):  # noqa: N803
             "installation_id": {"type": "str", "value": repo_info.get("installation_id")},
             "kebechet_metadata": {
                 "type": "dict",
-                "value": {"message_justification": _JUSTIFICATION_MAPPING[Configuration.MESSAGE_TYPE]},
+                "value": {
+                    "message_justification": _JUSTIFICATION_MAPPING[Configuration.MESSAGE_TYPE],
+                    "package_name": Configuration.PACKAGE_NAME,
+                    "package_version": Configuration.PACKAGE_VERSION,
+                },
             },
         }
 
@@ -134,7 +138,12 @@ def _handle_package_issue(Configuration):  # noqa: N803
             "installation_id": {"type": "str", "value": repo_info.get("installation_id")},
             "kebechet_metadata": {
                 "type": "dict",
-                "value": {"message_justification": _JUSTIFICATION_MAPPING[Configuration.MESSAGE_TYPE]},
+                "value": {
+                    "message_justification": _JUSTIFICATION_MAPPING[Configuration.MESSAGE_TYPE],
+                    "package_name": Configuration.PACKAGE_NAME,
+                    "package_version": Configuration.PACKAGE_VERSION,
+                    "package_index": Configuration.PACKAGE_INDEX,
+                },
             },
         }
 
